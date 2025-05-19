@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private final UserRepository repository;
+    private final UserRepository repositoryUser;
 
     public UserService(UserRepository repository) {
-        this.repository = repository;
+        this.repositoryUser = repository;
     }
 
     public void createUser(UserEntity user) {
-        repository.save(user);
+        repositoryUser.save(user);
     }
 
     public Page<UserEntity> getUsers(Pageable pageable) {
@@ -33,31 +33,35 @@ public class UserService {
                 Sort.Direction.ASC,
                 "name");
         return new PageImpl<>(
-                repository.findAll(),
+                repositoryUser.findAll(),
                 pageRequest, size);
     }
 
     public UserResponse getUser(Long id) {
-        return repository.findById(id)
+        return repositoryUser.findById(id)
                 .map(u -> new UserResponse(u.getName()))
                 .orElseThrow(() -> new NotFoundException("Usuario nao encontrado."));
     }
 
-    public void updateUser(Long id, UserEntity user) {
-        var userEntity = getUser(id);
 
-        if (userEntity != null) {
-//            userEntity.setName(user.getName());
-//            userEntity.setEmail(user.getEmail());
-//            repository.save(userEntity);
-        }
+    private UserEntity findUserEntityById(Long id) {
+        return repositoryUser.findById(id)
+                .orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
     }
+
+    public void updateUser(Long id, UserEntity userData) {
+        UserEntity existingUser = findUserEntityById(id);
+
+        existingUser.setName(userData.getName());
+        existingUser.setEmail(userData.getEmail());
+
+        repositoryUser.save(existingUser);
+    }
+
 
     public void deleteUser(Long id) {
-        var user = getUser(id);
-
-        if (user != null) {
-//            repository.delete(user);
-        }
+        UserEntity existingUser = findUserEntityById(id);
+        repositoryUser.delete(existingUser);
     }
+
 }

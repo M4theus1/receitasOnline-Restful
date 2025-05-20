@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<UserResponse>> getUsers(Pageable pageable){
-        return ResponseEntity.ok(service.getUsers(pageable));
+    public ResponseEntity<Page<UserEntity>> getUsers(){
+        return ResponseEntity.ok(service.getUsers());
     }
 
     @GetMapping("/{id}")

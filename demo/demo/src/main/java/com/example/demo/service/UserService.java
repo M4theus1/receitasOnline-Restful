@@ -20,7 +20,7 @@ public class UserService {
         repositoryUser.save(user);
     }
 
-    public Page<UserEntity> getUsers(Pageable pageable) {
+    public Page<UserEntity> getUsers() {
         return findAll();
     }
 

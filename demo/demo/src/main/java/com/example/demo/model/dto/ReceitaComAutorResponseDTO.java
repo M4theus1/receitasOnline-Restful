@@ -22,14 +22,14 @@ public class ReceitaComAutorResponseDTO {
     private List<String> ingredientes;
 
     @Schema(description = "Avaliações feitas para esta receita")
-    private List<AvaliacaoResponse> avaliacoes;
+    private List<AvaliacaoResponseDTO> avaliacoes;
 
     @Schema(description = "Autor da receita")
     private UserResponseDTO autor;
 
     // Getters, setters e construtor
 
-    public ReceitaComAutorResponseDTO(Integer id, String titulo, String descricao, String modoPreparo, List<String> ingredientes, List<AvaliacaoResponse> avaliacoes, UserResponseDTO autor) {
+    public ReceitaComAutorResponseDTO(Integer id, String titulo, String descricao, String modoPreparo, List<String> ingredientes, List<AvaliacaoResponseDTO> avaliacoes, UserResponseDTO autor) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -44,7 +44,7 @@ public class ReceitaComAutorResponseDTO {
     public String getDescricao() { return descricao; }
     public String getModoPreparo() { return modoPreparo; }
     public List<String> getIngredientes() { return ingredientes; }
-    public List<AvaliacaoResponse> getAvaliacoes() { return avaliacoes; }
+    public List<AvaliacaoResponseDTO> getAvaliacoes() { return avaliacoes; }
     public UserResponseDTO getAutor() { return autor; }
 
     public void setId(Integer id) { this.id = id; }
@@ -52,6 +52,6 @@ public class ReceitaComAutorResponseDTO {
     public void setDescricao(String descricao) { this.descricao = descricao; }
     public void setModoPreparo(String modoPreparo) { this.modoPreparo = modoPreparo; }
     public void setIngredientes(List<String> ingredientes) { this.ingredientes = ingredientes; }
-    public void setAvaliacoes(List<AvaliacaoResponse> avaliacoes) { this.avaliacoes = avaliacoes; }
+    public void setAvaliacoes(List<AvaliacaoResponseDTO> avaliacoes) { this.avaliacoes = avaliacoes; }
     public void setAutor(UserResponseDTO autor) { this.autor = autor; }
 }

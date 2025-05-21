@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class AvaliacaoServiceImpl {
+public class AvaliacaoServiceImpl implements AvaliacaoService {
 
     private final AvaliacaoRepository avaliacaoRepository;
 
@@ -39,5 +39,20 @@ public class AvaliacaoServiceImpl {
     @Transactional(readOnly = true)
     public List<AvaliacaoEntity> getAllAvaliacoes(){
         return avaliacaoRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public AvaliacaoEntity updateAvaliacao(Integer id, AvaliacaoEntity avaliacaoDetails){
+        AvaliacaoEntity avaliacao = getAvaliacaoById(id);
+
+        return avaliacaoRepository.save(avaliacao);
+    }
+
+    @Override
+    @Transactional
+    public void deleteAvaliacao(Integer id){
+        AvaliacaoEntity avaliacao = getAvaliacaoById(id);
+        avaliacaoRepository.delete(avaliacao);
     }
 }

@@ -1,9 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.entity.AvaliacaoEntity;
+import com.example.demo.model.entity.AvaliacaoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AvaliacaoRepository extends JpaRepository<AvaliacaoEntity, Long> {
+public interface AvaliacaoRepository extends JpaRepository<AvaliacaoEntity, Integer> {
 }

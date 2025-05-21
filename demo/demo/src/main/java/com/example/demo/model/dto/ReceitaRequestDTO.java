@@ -1,44 +1,31 @@
-package com.example.demo.entity;
+package com.example.demo.model.dto;
 
-import jakarta.persistence.*;
-import java.util.List;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Entity
-@Schema(description = "Entidade que representa uma receita")
-public class ReceitaEntity {
+import java.util.List;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "ID da receita", example = "1")
-    private Integer id;
+public class ReceitaRequestDTO {
 
+    @NotBlank(message = "Titulo é obrigatório")
     @Schema(description = "Título da receita", example = "Bolo de Cenoura")
-    private String titulo;
+    String titulo;
 
+    @NotBlank(message = "Descrição é obrigatório")
     @Schema(description = "Descrição da receita", example = "Um bolo delicioso para o café da tarde.")
-    private String descricao;
+    String descricao;
 
+    @NotBlank(message = "Modo de Preparo é obrigatório")
     @Schema(description = "Modo de preparo da receita", example = "Misture tudo e leve ao forno por 40 minutos.")
-    private String modoPreparo;
+    String modoPreparo;
 
-    @ElementCollection
+    @NotBlank(message = "Os ingredientes são obrigatórios")
     @Schema(description = "Lista de ingredientes", example = "[\"2 cenouras\", \"2 ovos\", \"1 xícara de açúcar\"]")
-    private List<String> ingredientes;
+    List<String> ingredientes;
 
-    @OneToMany(mappedBy = "receita", cascade = CascadeType.ALL)
-    @Schema(description = "Avaliações feitas para esta receita")
-    private List<AvaliacaoEntity> avaliacoes;
+    //getters e setters
 
-    // Getters e Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -70,13 +57,5 @@ public class ReceitaEntity {
 
     public void setIngredientes(List<String> ingredientes) {
         this.ingredientes = ingredientes;
-    }
-
-    public List<AvaliacaoEntity> getAvaliacoes() {
-        return avaliacoes;
-    }
-
-    public void setAvaliacoes(List<AvaliacaoEntity> avaliacoes) {
-        this.avaliacoes = avaliacoes;
     }
 }

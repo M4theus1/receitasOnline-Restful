@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
-import java.util.List;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity

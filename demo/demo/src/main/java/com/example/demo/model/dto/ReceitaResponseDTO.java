@@ -3,6 +3,7 @@ package com.example.demo.model.dto;
 import com.example.demo.model.dto.ReceitaComAutorResponseDTO;
 import com.example.demo.model.entity.AvaliacaoEntity;
 import com.example.demo.model.entity.ReceitaEntity;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import java.util.List;
 @Schema(description = "DTO de resposta para receitas completas")
 public class ReceitaResponseDTO {
 
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         @Schema(description = "Lista de receitas com informações do autor")
         private List<ReceitaComAutorResponseDTO> receitas;
 

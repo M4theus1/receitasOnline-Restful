@@ -20,6 +20,9 @@ public class ReceitaResponseDTO {
         @Schema(description = "Lista de receitas com informações do autor")
         private List<ReceitaComAutorResponseDTO> receitas;
 
+        @Schema(description = "ID da receita", example = "1")
+        private Integer id;
+
         @Schema(description = "Título da Receita", example = "Bolo de Cenoura")
         private String titulo;
 
@@ -42,6 +45,7 @@ public class ReceitaResponseDTO {
 
         // Construtor para detalhes de uma receita, já trazendo avaliações convertidas em DTO
         public ReceitaResponseDTO(ReceitaEntity receitaEntity) {
+                this.id = receitaEntity.getId();
                 this.titulo = receitaEntity.getTitulo();
                 this.descricao = receitaEntity.getDescricao();
                 this.modoPreparo = receitaEntity.getModoPreparo();

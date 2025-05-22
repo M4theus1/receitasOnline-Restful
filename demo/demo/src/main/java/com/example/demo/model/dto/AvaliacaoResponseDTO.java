@@ -1,12 +1,18 @@
 package com.example.demo.model.dto;
 
 import com.example.demo.model.entity.AvaliacaoEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "DTO de resposta para avaliação")
 public class AvaliacaoResponseDTO {
 
+    @Schema(description = "ID da avaliação", example = "1")
     private Integer id;
+    @Schema(description = "Nome do Usuário", example = "Maria Souza")
     private String nomeUsuario;
+    @Schema(description = "Avaliação", example = "5")
     private int nota;
+    @Schema(description = "Comentário da Avaliação", example = "Maravilhoso! Muito gostoso.")
     private String comentario;
 
     public AvaliacaoResponseDTO() {}

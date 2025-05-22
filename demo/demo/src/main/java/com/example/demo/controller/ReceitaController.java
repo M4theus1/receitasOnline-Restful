@@ -15,7 +15,7 @@
 
     @RestController
     @RequestMapping("/api/receitas")
-    @Tag(name = "Receitas", description = "Operações relacionadas às receitas")
+    @Tag(name = "Receitas", description = "Aqui o usuário poderá criar, editar e excluir receitas. Também poderá analisar as avaliações de demais usuários.")
     public class ReceitaController {
 
         private final ReceitaService receitaService;

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users")
-@Tag(name = "Usuários", description = "Gerenciamento de usuários")
+@Tag(name = "Usuários", description = "Gerenciamento de usuários; Criação, edição e exclusão.")
 public class UserController {
 
     private final UserService userService;

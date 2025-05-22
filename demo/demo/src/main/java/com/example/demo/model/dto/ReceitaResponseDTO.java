@@ -42,15 +42,12 @@ public class ReceitaResponseDTO {
         }
 
         // Construtor para detalhes de uma receita
-        public ReceitaResponseDTO(String titulo, String descricao, String modoPreparo,
-                                  List<String> ingredientes, List<AvaliacaoResponseDTO> avaliacoes) {
-                this.titulo = titulo;
-                this.descricao = descricao;
-                this.modoPreparo = modoPreparo;
-                this.ingredientes = ingredientes;
-                this.avaliacoes = avaliacoes;
+        public ReceitaResponseDTO(ReceitaEntity receitaEntity) {
+                this.titulo = receitaEntity.getTitulo();
+                this.descricao = receitaEntity.getDescricao();
+                this.modoPreparo = receitaEntity.getModoPreparo();
+                this.ingredientes = receitaEntity.getIngredientes();
+                this.avaliacoes = List.of();
         }
 
-        public ReceitaResponseDTO(ReceitaEntity receitaEntity) {
-        }
 }

@@ -4,6 +4,7 @@
     import com.example.demo.model.dto.ReceitaResponseDTO;
     import com.example.demo.model.entity.ReceitaEntity;
     import com.example.demo.service.ReceitaService;
+    import io.swagger.v3.oas.annotations.tags.Tag;
     import jakarta.validation.Valid;
     import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@
 
     @RestController
     @RequestMapping("/api/receitas")
+    @Tag(name = "Receitas", description = "Operações relacionadas às receitas")
     public class ReceitaController {
 
         private final ReceitaService receitaService;

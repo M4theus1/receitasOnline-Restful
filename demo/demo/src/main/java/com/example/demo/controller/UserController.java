@@ -4,6 +4,7 @@ import com.example.demo.model.dto.UserRequestDTO;
 import com.example.demo.model.dto.UserResponseDTO;
 import com.example.demo.model.entity.UserEntity;
 import com.example.demo.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users")
+@Tag(name = "Usuários", description = "Gerenciamento de usuários")
 public class UserController {
 
     private final UserService userService;

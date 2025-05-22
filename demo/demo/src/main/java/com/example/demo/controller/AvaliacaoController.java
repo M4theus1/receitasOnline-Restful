@@ -4,6 +4,7 @@ import com.example.demo.model.dto.AvaliacaoRequestDTO;
 import com.example.demo.model.dto.AvaliacaoResponseDTO;
 import com.example.demo.model.entity.AvaliacaoEntity;
 import com.example.demo.service.AvaliacaoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/avaliacoes")
+@Tag(name = "Avaliações", description = "Avaliações feitas por usuários nas receitas")
 public class AvaliacaoController {
 
     private final AvaliacaoService avaliacaoService;

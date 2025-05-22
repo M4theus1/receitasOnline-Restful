@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/avaliacoes")
-@Tag(name = "Avaliações", description = "Avaliações feitas por usuários nas receitas")
+@Tag(name = "Avaliações", description = "O usuário poderá listar as avaliações geradas pelos demais usuários. Criar e editar avaliações também são atributos desse controller.")
 public class AvaliacaoController {
 
     private final AvaliacaoService avaliacaoService;
